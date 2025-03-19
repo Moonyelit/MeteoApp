@@ -1,3 +1,12 @@
+/* Conteneur de la barre de recherche */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Barre de recherche */
 .search-bar {
     display: flex;
     justify-content: center;
@@ -5,6 +14,7 @@
     max-width: 400px;
 }
 
+/* Champ de texte */
 .search-input {
     flex: 1;
     padding: 10px;
@@ -13,14 +23,15 @@
     font-size: 16px;
     outline: none;
     background: transparent; 
-    color: white; 
+    color: white; /* Texte blanc */
 }
 
+/* Placeholder (texte d'aide) */
 .search-input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-
+/* Bouton de recherche */
 .search-button {
     padding: 10px 15px;
     border: 2px solid #61dafb;
@@ -36,15 +47,8 @@
     background: #4097d4;
 }
 
-
-.search-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-}
-
-.suggestions-list {
+/* Liste des suggestions */
+.suggestions-list, .recent-cities {
     position: absolute;
     width: 100%;
     background: #1b1b2f;
@@ -59,12 +63,40 @@
     text-align: start;
 }
 
-.suggestions-list li {
+/* Chaque élément de suggestion */
+.suggestions-list li, .recent-cities li {
     padding: 10px;
     color: white;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
-.suggestions-list li:hover {
+.suggestions-list li:hover, .recent-cities li:hover {
     background: #4097d4;
+}
+
+/* Section des villes récemment recherchées */
+.recent-title {
+    padding: 5px;
+    font-size: 14px;
+    color: #61dafb;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Bouton pour effacer l'historique */
+.clear-history {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.clear-history:hover {
+    background: #ff1a1a;
 }
