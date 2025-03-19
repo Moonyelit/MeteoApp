@@ -23,7 +23,7 @@ Pour installer et utiliser l'application, suivez les étapes ci-dessous :
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/MeteoApp.git
+   git clone https://github.com/Moonyelit/MeteoApp.git
    cd MeteoApp
    ```
 
