@@ -13,6 +13,9 @@ L'idée était de développer une application web responsive qui affiche la mét
 - 📅 Affichage des prévisions météo pour les 5 prochains jours.
 - 🖱️ Possibilité de cliquer sur un jour pour afficher les détails de la météo de ce jour.
 - 📍 Géolocalisation de l'utilisateur pour afficher la météo de sa position actuelle.
+- 🔍 Ajouter une option pour saisir manuellement le nom de la ville.
+- 🏙️ Afficher plusieurs villes en même temps et conserver ces villes en mémoire avec `localStorage`.
+- 📊 Afficher les températures de la journée sous forme de graphiques.
 
 ## Composants 🧩
 
@@ -30,10 +33,5 @@ Les composants communiquent entre eux via les props, permettant de passer les do
 
 Pour récupérer les données météo, nous utilisons l'API OpenWeatherMap. Cela nous permet d'obtenir les informations nécessaires telles que la température, l'icône de la météo et la vitesse du vent.
 
-## Améliorations futures 🚀
-
-- 🔍 Ajouter une option pour saisir manuellement le nom de la ville.
-- 🏙️ Afficher plusieurs villes en même temps et conserver ces villes en mémoire avec `localStorage`.
-- 📊 Afficher les températures de la journée sous forme de graphiques.
 
 Ce projet m'a permis de me familiariser avec React et de comprendre comment structurer une application en composants, gérer l'état et utiliser une API externe pour récupérer des données.
