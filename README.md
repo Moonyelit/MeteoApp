@@ -44,7 +44,7 @@ Pour installer et utiliser l'application, suivez les étapes ci-dessous :
    npm run dev
    ```
 
-L'application devrait maintenant être en cours d'exécution sur `http://localhost:3000`.
+L'application devrait maintenant être en cours d'exécution sur `http://localhost:5173/`.
 
 ## Composants 🧩
 
