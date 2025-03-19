@@ -3,16 +3,24 @@ import axios from "axios";
 import "../styles/SearchBar.css";
 
 const SearchBar = ({ onSearch }) => {
-    // Déclaration des états pour gérer la ville, les suggestions, les villes récentes et l'affichage des villes récentes
+    // 🏙️ État pour stocker la ville saisie par l'utilisateur
     const [city, setCity] = useState("");
+
+    // 📌 État pour stocker les suggestions renvoyées par l'API
     const [suggestions, setSuggestions] = useState([]);
+
+    // 🔄 État pour stocker les dernières villes recherchées (récupérées depuis le localStorage)
     const [recentCities, setRecentCities] = useState(
         JSON.parse(localStorage.getItem("recentCities")) || []
     );
+
+    // 👀 État pour afficher ou cacher les villes récemment recherchées
     const [showRecent, setShowRecent] = useState(false);
+
+    // 📌 useRef pour détecter les clics en dehors de la barre de recherche
     const searchRef = useRef(null);
 
-    // Fonction pour gérer les changements dans l'input
+    // 📝 Fonction pour gérer la saisie de l'utilisateur
     const handleChange = async (event) => {
         const value = event.target.value;
         setCity(value);
@@ -20,57 +28,58 @@ const SearchBar = ({ onSearch }) => {
         if (value.length > 2) {
             try {
                 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+                // 🔍 Requête API pour obtenir les villes correspondant à la saisie
                 const response = await axios.get(
                     `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${value}`
                 );
-                setSuggestions(response.data);
+                setSuggestions(response.data); // Met à jour les suggestions
                 setShowRecent(false); // Cache les villes récentes lorsqu'on tape
             } catch (error) {
                 console.error("Erreur lors de la récupération des suggestions :", error);
-                setSuggestions([]);
+                setSuggestions([]); // Réinitialise les suggestions en cas d'erreur
             }
         } else {
-            setSuggestions([]);
+            setSuggestions([]); // Efface les suggestions si l'entrée est trop courte
             if (value === "") {
                 setShowRecent(true); // Réaffiche les villes récemment recherchées si l'input est vide
             }
         }
     };
 
-    // Fonction pour gérer la sélection d'une suggestion
+    // 🖱️ Fonction pour sélectionner une ville dans les suggestions
     const handleSelectSuggestion = (cityName) => {
         setCity(cityName);
-        setSuggestions([]);
-        setShowRecent(false);
-        updateRecentCities(cityName);
-        onSearch(cityName);
+        setSuggestions([]); // Efface les suggestions
+        setShowRecent(false); // Cache la liste des villes récentes
+        updateRecentCities(cityName); // Met à jour les villes récentes
+        onSearch(cityName); // Met à jour la météo de la ville sélectionnée
     };
 
-    // Fonction pour gérer la soumission du formulaire
+    // 📤 Fonction pour soumettre le formulaire et chercher une ville
     const handleSubmit = (event) => {
         event.preventDefault();
         if (city.trim() !== "") {
-            updateRecentCities(city);
-            onSearch(city);
-            setSuggestions([]);
-            setShowRecent(false);
+            updateRecentCities(city); // Ajoute la ville à l'historique
+            onSearch(city); // Met à jour la météo
+            setSuggestions([]); // Cache les suggestions
+            setShowRecent(false); // Cache la liste des villes récentes
         }
     };
 
-    // Fonction pour mettre à jour les villes récemment recherchées
+    // 🔄 Fonction pour enregistrer les villes récemment recherchées
     const updateRecentCities = (newCity) => {
         let updatedCities = [newCity, ...recentCities.filter((c) => c !== newCity)];
-        updatedCities = updatedCities.slice(0, 5);
+        updatedCities = updatedCities.slice(0, 5); // Garde uniquement les 5 dernières villes
         setRecentCities(updatedCities);
-        localStorage.setItem("recentCities", JSON.stringify(updatedCities));
+        localStorage.setItem("recentCities", JSON.stringify(updatedCities)); // Enregistre dans le localStorage
     };
 
-    // Effet pour gérer les clics en dehors de la barre de recherche
+    // 🖱️ Gestion des clics en dehors de la barre de recherche
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (searchRef.current && !searchRef.current.contains(event.target)) {
-                setSuggestions([]);
-                setShowRecent(false); // Cache les villes récemment recherchées mais ne les efface pas
+                setSuggestions([]); // Cache les suggestions
+                setShowRecent(false); // Cache la liste des villes récemment recherchées
             }
         };
 
@@ -80,6 +89,7 @@ const SearchBar = ({ onSearch }) => {
 
     return (
         <div className="search-container" ref={searchRef}>
+            {/* 🔎 Formulaire de recherche */}
             <form className="search-bar" onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -88,7 +98,7 @@ const SearchBar = ({ onSearch }) => {
                     onChange={handleChange}
                     onFocus={() => {
                         if (city.trim() === "" && recentCities.length > 0) {
-                            setShowRecent(true);
+                            setShowRecent(true); // Affiche les villes récentes si l'input est vide
                         }
                     }}
                     className="search-input"
@@ -96,7 +106,7 @@ const SearchBar = ({ onSearch }) => {
                 <button type="submit" className="search-button">🔍</button>
             </form>
 
-            {/* Affichage des suggestions API */}
+            {/* 🏙️ Liste des suggestions de villes */}
             {suggestions.length > 0 && (
                 <ul className="suggestions-list">
                     {suggestions.map((suggestion, index) => (
@@ -107,7 +117,7 @@ const SearchBar = ({ onSearch }) => {
                 </ul>
             )}
 
-            {/* Affichage des villes récemment recherchées */}
+            {/* 🔄 Liste des villes récemment recherchées */}
             {showRecent && recentCities.length > 0 && (
                 <ul className="recent-cities">
                     <p className="recent-title">🔄 Villes récemment recherchées</p>
