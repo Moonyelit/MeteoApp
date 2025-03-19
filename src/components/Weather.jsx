@@ -3,6 +3,8 @@ import axios from "axios";
 import "../styles/Weather.css";
 import Days from "./Days"; 
 import SearchBar from "./SearchBar";
+import HourlyChart from "./HourlyChart";
+
 
 const Weather = () => {
     const [weather, setWeather] = useState(null);
@@ -17,7 +19,7 @@ const Weather = () => {
                 if (!apiKey) throw new Error("Clé API manquante !");
 
                 const response = await axios.get(
-                    `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&lang=fr&aqi=no`
+                    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&lang=fr&aqi=no&hours=24`
                 );
 
                 setWeather(response.data);
@@ -47,6 +49,10 @@ const Weather = () => {
                     <h2>{weather.location.name}</h2>
                     <img src={weather.current.condition.icon} alt="weather icon" />
                     <span className="temperature">{weather.current.temp_c}°C</span>
+                
+                    <HourlyChart forecast={weather.forecast} />
+
+                
                     <p>{weather.current.condition.text}</p>
                     <p>🌬️ Vent: {weather.current.wind_kph} km/h</p>
                     <p>💧 Humidité: {weather.current.humidity}%</p>
