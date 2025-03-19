@@ -4,7 +4,7 @@ Ce projet a été réalisé dans le cadre de mon apprentissage de React. L'objec
 
 ## Objectif du projet 🎯
 
-L'idée était de développer une application web responsive qui affiche la météo pour différents appareils, similaire aux applications mobiles.
+L'idée était de développer une application web qui affiche la météo pour différents appareils, similaire aux applications mobiles.
 
 ## Fonctionnalités ✨
 
