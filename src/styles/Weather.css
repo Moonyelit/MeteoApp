@@ -1,0 +1,81 @@
+.weather.card {
+    margin-top: 4vh;
+    background: #0b0829;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    margin: auto;
+}
+
+.weather.card .card-content {
+    background: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    color: white; 
+    text-align: center;
+}
+
+.weather .temperature {
+    font-size: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white; 
+    text-shadow: none; 
+}
+
+.weather p {
+    font-size: 12px;
+    color: #dcdcdc;
+    margin: 5px 0;
+}
+
+.weather img {
+    width: 100px;
+     height: auto; 
+    display: block;
+    margin: auto;
+}
+
+
+
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.forecast-day {
+    background: #1b1b2f;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.forecast-day:hover {
+    transform: scale(1.05);
+}
+
+.forecast-icon {
+    width: 70px;
+    height: auto;
+}
+
+.date {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.temp {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.condition {
+    font-size: 14px;
+}
