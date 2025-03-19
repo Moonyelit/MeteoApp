@@ -53,6 +53,8 @@ L'application est structurée en plusieurs composants React :
 - `Header.js` : Affiche le header de l'application.
 - `Weather.js` : Affiche les données météo actuelles.
 - `Days.js` : Affiche les prévisions pour les 5 prochains jours.
+- `SearchBar.jsx` : Permet de rechercher une ville et d'enregistrer les 5 dernières villes recherchées.
+- `HourlyCharts.jsx` : Affiche un graphique des températures de la journée pour le jour sélectionné.
 
 ## Communication entre composants 🔄
 
