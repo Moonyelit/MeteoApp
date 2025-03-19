@@ -9,12 +9,12 @@ L'idée était de développer une application web qui affiche la météo pour di
 ## Fonctionnalités ✨
 
 - 🌐 Récupération des données météo via l'API WeatherApi.
-- 🌡️ Affichage de la météo actuelle pour la ville de Lyon.
+- 🌡️ Affichage de la météo actuelle pour de l"utilisateur si accepte la géolocalisation sinon par défault Paris.
 - 📅 Affichage des prévisions météo pour les 5 prochains jours.
 - 🖱️ Possibilité de cliquer sur un jour pour afficher les détails de la météo de ce jour.
 - 📍 Géolocalisation de l'utilisateur pour afficher la météo de sa position actuelle.
-- 🔍 Ajouter une option pour saisir manuellement le nom de la ville.
-- 🏙️ Afficher plusieurs villes en même temps et conserver ces villes en mémoire avec `localStorage`.
+- 🔍 Ajouter une option pour saisir manuellement le nom de la ville. 
+- 🏙️ Afficher plusieurs villes en même temps et conserver ces villes en mémoire avec `localStorage`. (Jusqu'à 5 villes)
 - 📊 Afficher les températures de la journée sous forme de graphiques.
 
 ## Installation 🛠️
