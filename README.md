@@ -17,6 +17,35 @@ L'idée était de développer une application web qui affiche la météo pour di
 - 🏙️ Afficher plusieurs villes en même temps et conserver ces villes en mémoire avec `localStorage`.
 - 📊 Afficher les températures de la journée sous forme de graphiques.
 
+## Installation 🛠️
+
+Pour installer et utiliser l'application, suivez les étapes ci-dessous :
+
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/MeteoApp.git
+   cd MeteoApp
+   ```
+
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+
+3. Créez un fichier `.env.local` à la racine du projet et ajoutez-y votre clé API WeatherAPI :
+   ```properties
+   VITE_WEATHER_API_KEY=VOTRE_CLE_API
+   ```
+
+   Vous pouvez obtenir votre clé API en vous inscrivant sur [WeatherAPI](https://www.weatherapi.com/).
+
+4. Démarrez l'application :
+   ```bash
+   npm run dev
+   ```
+
+L'application devrait maintenant être en cours d'exécution sur `http://localhost:3000`.
+
 ## Composants 🧩
 
 L'application est structurée en plusieurs composants React :
