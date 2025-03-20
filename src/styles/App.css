@@ -1,30 +1,74 @@
+/* ----- App.css ----- */
+
+/* Corps avec un dégradé pastel qui bouge doucement */
 body {
-  background: #202629;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #3879cd, #FFFCDC);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+
+  /* On garde du texte blanc, mais on ajoute une ombre 
+     pour améliorer la lisibilité sur fond clair. */
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Animation du fond en continu */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .App {
   text-align: center;
+  padding: 20px;
+}
+
+/* Header avec effet glass et animation de slide-in */
+.App-header {
+  margin: 20px auto;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px;
+  animation: fadeInDown 1s ease forwards;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animation "descendante" pour le header */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .App-logo {
-  height: 100px;
-  pointer-events: none;
+  height: 120px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  margin-bottom: 5rem;
-}
-
+/* Liens avec transition de couleur */
 .App-link {
-  color: #61dafb;
+  color: #4F8DFD;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
+.App-link:hover {
+  color: #9A57FD;
+}

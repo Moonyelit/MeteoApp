@@ -1,81 +1,134 @@
-.weather.card {
-    margin-top: 4vh;
-    background: #0b0829;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    max-width: 700px;
-    margin: auto;
-}
+/* ----- Weather.css ----- */
 
-.weather.card .card-content {
+/* Container principal */
+.weather-container {
+    /* On peut ajouter un fadeIn ou slideIn global si besoin */
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Carte météo principale */
+  .weather.card {
+    margin-top: 4vh;
+    /* Effet glass + arrondis */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    z-index: 0;
+  
+    padding: 20px;
+    max-width: 700px;
+    margin: 40px auto 20px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+    /* Animation */
+    animation: fadeInScale 1s ease forwards;
+  }
+  
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .weather.card .card-content {
     background: transparent;
     padding: 20px;
     border-radius: 10px;
-    color: white; 
     text-align: center;
-}
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-.weather .temperature {
-    font-size: 100px;
+  }
+  
+  /* Température plus moderne */
+  .weather .temperature {
+    font-size: 4rem;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: white; 
-    text-shadow: none; 
-}
-
-.weather p {
-    font-size: 12px;
-    color: #dcdcdc;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: none;
+    margin: 20px 0;
+  }
+  
+  /* Texte météo */
+  .weather p {
+    font-size: 14px;
+    color: #f0f0f0;
     margin: 5px 0;
-}
-
-.weather img {
-    width: 100px;
-     height: auto; 
+  }
+  
+  .weather img {
+    width: 120px;
+    height: auto;
     display: block;
-    margin: auto;
-}
-
-
-
-.forecast-container {
+    margin: 10px auto;
+    /* Petite animation d’arrivée */
+    animation: floatIcon 1.2s ease;
+  }
+  
+  @keyframes floatIcon {
+    0% { opacity: 0; transform: translateY(-15px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Conteneur des prévisions */
+  .forecast-container {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
     padding: 10px;
-}
-
-.forecast-day {
-    background: #1b1b2f;
+    flex-wrap: wrap; /* Pour être plus responsive */
+  }
+  
+  /* Chaque jour de prévision */
+  .forecast-day {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     color: white;
-    width: 120px;
-    transition: transform 0.3s ease;
-}
-
-.forecast-day:hover {
+    width: 110px;
+    transition: transform 0.3s ease, background 0.3s;
+    margin-bottom: 10px;
+  }
+  
+  /* Effet au survol */
+  .forecast-day:hover {
     transform: scale(1.05);
-}
-
-.forecast-icon {
-    width: 70px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .forecast-icon {
+    width: 50px;
     height: auto;
-}
-
-.date {
+    margin-bottom: 5px;
+  }
+  
+  .date {
     font-weight: bold;
     font-size: 16px;
-}
-
-.temp {
-    font-size: 20px;
+  }
+  
+  .temp {
+    font-size: 18px;
     font-weight: bold;
-}
-
-.condition {
+    margin: 5px 0;
+  }
+  
+  .condition {
     font-size: 14px;
+    color: #f0f0f0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+  
